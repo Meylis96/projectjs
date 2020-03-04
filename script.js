@@ -48,3 +48,5 @@ let isChecked = false,
 
 console.log(isChecked || !isClosed);
 
+let sex = true;
+
