@@ -49,23 +49,31 @@
 // console.log(isChecked || !isClosed);
 
 
-let money = prompt("Ваш бюджет на месяц?"),
-    date = prompt("Введите дату в формате YYYY-MM-DD");
-console.log(money);
-console.log(date);    
+let money = +prompt("Ваш бюджет на месяц?", ""),
+    date = prompt("Введите дату в формате YYYY-MM-DD", "");
 
 let appData = {
-    budget: 'money',
-    timeData: 'date',
+    budget: money,
+    timeData: date,
     expenses: {},
     optionalExpenses: {},
     income: [],
     savings: false
 };
-appData.money = date;
-console.log(appData);
 
 
+for (let i = 0; i < 2; i++) {
+    let a = prompt ("Введите обязательную статью расходов в этом месяце", ""),
+        b = prompt ("Во сколько обойдется?", "");
 
-let answer = prompt("Введите обязательную статью расходов в этом месяце", "Во сколько обойдется?");
-console.log(answer);
+    if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
+
+        console.log ("done");
+
+        appData.expenses[a] = b;
+    } else {                            
+        console.log ("bad result");
+        i--;
+    }
+
+};
