@@ -1,125 +1,68 @@
-// 'use strick';
-
-// var number = 5;
-// var string = "Hello!";
-// var sym = Symbol();
-// var boolean = true;
-// null;
-// undefined;
-// var obj = {};
-
-// let person = {
-//     name: "John",
-//     age: 23,
-//     isMarried: false
-// };
-// console.log(person.name);
-// console.log(person.age);
-
-// let arr = ['plum.png', 'orange.jpg', 'apple.png'];
-
-// console.log(arr[0]);
-
-// // alert("Hello World!");
-
-// // let answer = confirm("Are you here?")
-
-// // console.log(answer);
+'use strict'; //For ES6 standarts
 
 
-// // let answer = +prompt("Are you 18?", "Yes");
+/*
+var leftBorderWidth = 1; //console.log() - use anywhere
 
-// // console.log(typeof(answer));
+let second = 2; //console.log() - use after and inside of {}
 
-// // console.log("arr" + " - object");
-// // console.log(4 + +" - object");
-
-// let incr = 10,
-//     decr = 10;
-
-// console.log(incr++);
-// console.log(decr--);
-
-// console.log(5%2);
-// console.log("2" == 2);
-
-// let isChecked = false,
-//     isClosed = false;
-
-// console.log(isChecked || !isClosed);
+const pi = 3.14; //unchangeble as let
+*/
 
 
-let money = +prompt("Ваш бюджет на месяц?", ""),
-    date = prompt("Введите дату в формате YYYY-MM-DD", "");
 
-let appData = {
-    budget: money,
-    timeData: date,
-    expenses: {},
-    optionalExpenses: {},
-    income: [],
-    savings: false
+
+var number = 5;
+var string = 'Meylis';
+var sym = Symbol(); //Use very rarely
+var boolean = true;
+null;
+undefined;
+var obj = {};
+
+// console.log(string + ' ' + 'Muhamedov')
+
+let person = {
+    name: 'John',
+    age: 25,
+    isMaried: true
 };
+console.log(person['isMaried']);  //[''] after person use rarely
 
 
-for (let i = 0; i < 2; i++) {
-    let a = prompt ("Введите обязательную статью расходов в этом месяце", ""),
-        b = prompt ("Во сколько обойдется?", "");
+let arr = ['plum.png', 'orange.jpg', 'apple.png'];
+console.log(arr[0]) //[] to get element starting with 0
 
-    if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
+// alert('Hello World!');
 
-        console.log ("done");
 
-        appData.expenses[a] = b;
-    } else {                            
-        console.log ("bad result");
-        i--;
-    }
-};
+// let answer = confirm('Are you here?');
+// console.log(answer)
 
-// let i = 0;
-// while (i < 2) {
-//     let a = prompt ("Введите обязательную статью расходов в этом месяце", ""),
-//         b = prompt ("Во сколько обойдется?", "");
-//     if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
+// let answer = prompt('Are you more than +18', 'Yes'); // tap , and then '' for IE
 
-//         console.log ("done");
+// console.log(typeof(null));
 
-//         appData.expenses[a] = b;
-//     } else {                            
-//         console.log ("bad result");
-//         i--;
-//     }
-//         i++;
-// };
+// console.log('arr' + '-object');
+// console.log(4 + +'-object'); // + + for making it as number
 
-// let i = 0;
-// do {
-//     let a = prompt ("Введите обязательную статью расходов в этом месяце", ""),
-//             b = prompt ("Во сколько обойдется?", "");
-//         if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
-    
-//             console.log ("done");
-    
-//             appData.expenses[a] = b;
-//         } else {                            
-//             console.log ("bad result");
-//             i--;
-//         }
-//             i++;
-// }
-// while (i <2);
 
-appData.moneyPerDay = appData.budget / 30;
 
-alert("Everyday budget: " + appData.moneyPerDay);
+let incr = 10,
+    decr = 10;
 
-if(appData.moneyPerDay < 100) {
-    console.log("Minimum level");
-} else if(appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
-    console.log("Average level");
-} else if(appData.moneyPerDay > 2000) {
-    console.log("High level");
-} else {
-    console.log("Something wrong");
-};
+
+// console.log(++incr); //prefix form
+// console.log(--decr); //prefix form
+
+console.log(incr++); //postfix form
+console.log(decr--); //postfix form
+
+console.log(5 % 2);
+console.log('2' == 2); // Даст true потому что == сравнивает по значению
+console.log('2' === 2); // Даст False потому что === по типу данных
+
+let isChecked = false,
+    isClose = false;
+
+console.log(isChecked || !isClose); // && will give True if both of true || will give False if both of them false
