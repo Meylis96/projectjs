@@ -66,3 +66,65 @@ let isChecked = false,
     isClose = false;
 
 console.log(isChecked || !isClose); // && will give True if both of true || will give False if both of them false
+
+/*
+// if(2*4 == 7) {
+//     console.log('Right!')
+// } else {
+//     alert('Wrong!')
+// }
+
+// let num = 50;
+let num = 50;
+if(num < 49) {
+    console.log('Wrong!')
+} else if (num > 100) {
+    console.log('Too much!')
+} else {
+    console.log('Right!')
+};
+
+(num == 50) ? console.log('Right!') : console.log('Wrong!'); //The same as at top
+
+
+switch(num) {
+    case num < 49:
+        console.log('Wrong!');
+        break;
+    case num > 100:
+        console.log('Too much!');
+        break;
+    case num > 80:
+        console.log('Still too much!');
+        break;
+    case 50:     // use only 50 insted of num == 50
+        console.log('Right!');
+        break;
+    default:
+        console.log('Something wrong!');
+        break;
+}; // Easy way of using if(){}
+*/
+
+
+let num = 50;
+
+while (num < 55) {
+    console.log(num);
+    num++;
+};
+
+do{
+    console.log(num);
+    num++;
+}
+while(num < 55); // To do something and check with while()
+
+// Most usable 95%
+for(let i = 1; i < 8; i++) {
+    if(i == 6) {
+        // break;
+        continue;
+    }
+    console.log(i)
+}
