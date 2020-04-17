@@ -389,5 +389,3 @@ console.log("Ёжик" > "яблоко") //No -
 console.log( 0 || "" || 2 || undefined || true || falsе ); // false - 2
 
 
-
-// DOM

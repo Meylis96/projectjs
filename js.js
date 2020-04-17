@@ -1,4 +1,4 @@
-// mobile devices
+// mobile devices touch events
 // touchstart  when you touch the element
 // touchmove  when you touch the element and move it
 // touchend when finger is out off touch
@@ -6,8 +6,8 @@
 // touchleave when your finger leaves the element
 // touchcancel when finger cancels the event
 
-window.addEventListener('DOMContentLoaded', function(){
-    let box = document.querySelector('.box');
+// window.addEventListener('DOMContentLoaded', function(){
+//     let box = document.querySelector('.box');
 
     // box.addEventListener('touchstart', function(e){
     //     e.preventDefault();
@@ -18,10 +18,10 @@ window.addEventListener('DOMContentLoaded', function(){
     //     console.log(e.targetTouches);
     // });
 
-    box.addEventListener('touchmove', function(e){
-        e.preventDefault();
-        console.log("Red box: " + e.touches[0].pageX);
-    });
+    // box.addEventListener('touchmove', function(e){
+    //     e.preventDefault();
+    //     console.log("Red box: " + e.touches[0].pageX);
+    // });
 
     // box.addEventListener('touchend', function(e){
     //     e.preventDefault();
@@ -60,7 +60,57 @@ window.addEventListener('DOMContentLoaded', function(){
     // let reg = /\d/g;
     // console.log(ans.match(reg));
 
-    let str = 'My name is/ R2D2';
+    // let str = 'My name is/ R2D2';
 
-    console.log(str.match(/ /i));
+    // console.log(str.match(/ /i));
+// });
+
+
+
+// JS in work
+
+// let timerId = setTimeout(sayHello, 3000);
+// clearTimeout(timerId);
+
+// let timerId = setInterval(sayHello, 3000);
+// clearTimeout(timerId);
+
+
+// function sayHello() {
+//     console.log('Hello World!')
+// }
+
+// let timerId = setTimeout(function log(){
+//     console.log("Hello");
+//     setTimeout(log, 2000);
+// })
+
+let btn = document.querySelector('.btn'),
+    elem = document.querySelector('.box');
+
+function myAnimation() {
+    let pos = 0;
+
+    let id = setInterval(frame, 10);
+    function frame() {
+        if (pos == 300) {
+            clearInterval(id);
+        } else {
+            pos++;
+            elem.style.top = pos + 'px';
+            elem.style.left = pos + 'px';
+        }
+    }
+}
+
+btn.addEventListener('click', myAnimation);
+
+
+let btnBlock = document.querySelector('.btn-block'),
+    btns = document.getElementsByTagName('button');
+
+btnBlock.addEventListener('click', function(e) {
+    if (e.target && e.target.matches('button.first')) {
+        console.log("Hello!");
+    }
 });
