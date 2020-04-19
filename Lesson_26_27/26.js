@@ -88,8 +88,8 @@
 //     console.log(this.name + surname);
 // }
 
-// console.log(sayName.call(user, 'Smith'));
-// console.log(sayName.apply(user, ['Snow']));
+console.log(sayName.call(user, 'Smith'));
+console.log(sayName.apply(user, ['Snow']));
 
 
 // function count(number) {

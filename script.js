@@ -251,9 +251,9 @@ console.log(Object.keys(options).length); // To show amount of objects in option
 // //     console.log(array[i]);
 // // }
 
-// array.forEach(function(item, i, mass){
-//     console.log(i + ' ' + item + '(massive: ' + mass + ')'); //calback function
-// });
+array.forEach(function(item, i, mass){
+    console.log(i + ' ' + item + '(massive: ' + mass + ')'); //calback function
+});
 
 // console.log(array);
 
