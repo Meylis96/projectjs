@@ -45,7 +45,7 @@
 // ivan.hello();
 // alex.hello();
 
-
+// 'use strict';
 // function showThis(){
 //     console.log(this);
 // }
@@ -101,16 +101,16 @@
 // console.log(double(10));
 
 
-let btn = document.querySelector('button');
+// let btn = document.querySelector('button');
 
-btn.addEventListener('click', function () {
-    console.log(this);
-    this.style.backgroundColor = 'red';
-    function showThis() {
-        console.log(this);
-    }
-    showThis();
-})
+// btn.addEventListener('click', function () {
+//     console.log(this);
+//     this.style.backgroundColor = 'red';
+//     function showThis() {
+//         console.log(this);
+//     }
+//     showThis();
+// })
 
 // 1) call function - window/undefined
 // 2) Method object - this = object

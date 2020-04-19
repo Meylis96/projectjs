@@ -85,7 +85,41 @@ window.addEventListener('DOMContentLoaded', function(){  //To load structure of 
     }
 
     setClock('timer', deadline);
-    
+
+
+    //Modal
+
+    let more = document.querySelector('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close');
+
+    more.addEventListener('click', function() {
+        overlay.style.display = 'block';
+        this.classList.add('more-plash');
+        document.body.style.overflow = 'hidden';
+    });
+
+    close.addEventListener('click', function(){
+        overlay.style.display = 'none';
+        more.classList.remove('more-plash');
+        document.body.style.overflow = '';
+    });
+
+    // Homework
+    let btnDescr = document.querySelector('.description-btn'),
+        overlaySecond = document.querySelector('.overlay'),
+        closeSecond = document.querySelector('.popup-close');
+
+    btnDescr.addEventListener('click', function(){
+        overlaySecond.style.display = 'block';
+        this.classList.add('more-plash');
+        document.body.style.overflow = 'hidden';
+    });
+    closeSecond.addEventListener('click', function(){
+        overlaySecond.style.display = 'none';
+        btnDescr.classList.remove('more-plash');
+        document.body.style.overflow = '';
+    });
 });
 
 
