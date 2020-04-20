@@ -106,7 +106,7 @@ window.addEventListener('DOMContentLoaded', function(){  //To load structure of 
                 }
             }
         });
-    });  //Homework for more tabs use querySelectorAll and dynction forEach()
+    });  //Homework. For more tabs use querySelectorAll and dynction forEach()
 
     more.addEventListener('click', function() {
         overlay.style.display = 'block';
@@ -122,3 +122,25 @@ window.addEventListener('DOMContentLoaded', function(){  //To load structure of 
 });
 
 
+// ES6 Standarts homework
+
+class Options {
+    constructor(height, width, bg, fontSize, textAlign){
+        this.height = height;
+        this.width = width;
+        this.bg = bg;
+        this.fontSize = fontSize;
+        this.textAlign = textAlign;
+    }
+    createDiv() {
+        let div = document.createElement('div');
+        document.body.appendChild(div); // To push to the HTML
+        div.innerHTML = '<h1>Homework</h1>'; //To create any text in this
+
+        let param = `height:${this.height}px; width:${this.width}px; background-color:${this.bg}; font-size:${this.fontSize}px; text-align:${this.textAlign}`; //Create parametr with styles
+		div.style.cssText = param;
+    }
+}
+
+const obj = new Options(300, 350, "red", 14, "center");
+obj.createDiv();
