@@ -119,17 +119,15 @@ window.addEventListener('DOMContentLoaded', function(){  //To load structure of 
         more.classList.remove('more-plash');
         document.body.style.overflow = '';
     });
-});
 
+    // ES6 Standarts homework
 
-// ES6 Standarts homework
-
-class Options {
-    constructor(height, width, bg, fontSize, textAlign){
-        this.height = height;
-        this.width = width;
-        this.bg = bg;
-        this.fontSize = fontSize;
+    class Options {
+        constructor(height, width, bg, fontSize, textAlign){
+            this.height = height;
+            this.width = width;
+            this.bg = bg;
+            this.fontSize = fontSize;
         this.textAlign = textAlign;
     }
     createDiv() {
@@ -140,7 +138,104 @@ class Options {
         let param = `height:${this.height}px; width:${this.width}px; background-color:${this.bg}; font-size:${this.fontSize}px; text-align:${this.textAlign}`; //Create parametr with styles
 		div.style.cssText = param;
     }
-}
+    }
 
-const obj = new Options(300, 350, "red", 14, "center");
-obj.createDiv();
+    const obj = new Options(300, 350, "red", 14, "center");
+    obj.createDiv();
+
+    //Form
+
+    let message = {
+        loading: 'Loading...',
+        success: 'Thank you! We will contact with you!',
+        failure: 'Something is wrong...'
+    };
+
+    let form = document.querySelector('.main-form'),
+        input = form.getElementsByTagName('input'),
+        statusMessage = document.createElement('div');
+
+        statusMessage.classList.add('status');
+    
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        form.appendChild(statusMessage);
+
+        let request = new XMLHttpRequest();
+        request.open('POST', 'server.php');
+        request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+        let formData = new FormData(form);
+
+        let obj = {};
+        formData.forEach(function(value, key) {
+            obj[key] = value;
+        });
+        let json = JSON.stringify(obj);
+
+        request.send(json);
+
+        request.addEventListener('readystatechange', function() {
+            if(request.readyState < 4) {
+                statusMessage.innerHTML = message.loading;
+            } else if (request.readyState === 4 && request.status === 200) {
+                statusMessage.innerHTML = message.success;
+            } else {
+                statusMessage.innerHTML = message.failure;
+            }
+        });
+
+
+        for(let i = 0; i < input.length; i++) {
+            input[i].value = '';
+        }
+    });
+
+    
+        // Homework
+        let newMessage = {
+            loading: 'Loading...',
+            success: 'Thank you! We will contact with you!',
+            failure: 'Something is wrong...'
+        };
+        let contactForm = document.querySelector('#form'),
+            contactInput = contactForm.getElementsByTagName('input'),
+            newStatusMessage = document.createElement('div');
+            newStatusMessage.classList.add('status');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            contactForm.appendChild(newStatusMessage);
+        
+            let request = new XMLHttpRequest();
+            request.open('POST', 'server.php');
+            request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+
+            let formData = new FormData(contactForm);
+
+            let object = {};
+            formData.forEach(function(value, key) {
+                object[key] = value;
+            });
+
+            let json = JSON.stringify(object);
+            request.send(json);
+
+            request.addEventListener('readystatechange', function() {
+                if(request.readyState < 4) {
+                    newStatusMessage.innerHTML = newMessage.loading;
+                } else if (request.readyState === 4 && request.status === 200) {
+                    newStatusMessage.innerHTML = newMessage.success;
+                } else {
+                    newStatusMessage.innerHTML = newMessage.failure;
+                }
+            });
+
+            for(let i = 0; i < contactInput.length; i++) {
+                contactInput[i].value = '';
+            }
+    });
+});
+
+
