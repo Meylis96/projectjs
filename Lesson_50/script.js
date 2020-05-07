@@ -39,3 +39,5 @@ function makeBusiness(owner, director, cash, emp) {
     console.log('Note. Be careful with ' + sponsors.eu[0] + ". It's a huge risk.");
 }
 makeBusiness.apply(null, ['Sam', null, money, employersNames]);
+
+console.log(10 % 3)
