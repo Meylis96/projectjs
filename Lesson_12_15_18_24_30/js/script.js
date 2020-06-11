@@ -77,9 +77,40 @@ let personalMovieDB = {
         // personalMovieDB.genres.forEach((item, i) => {
         //     console.log(`The favorite genre #${i + 1} is ${item}`);
         // });
-    }
+    },
+    filmName: [
+        "ЛОГАН",
+        "ЛИГА СПРАВЕДЛИВОСТИ",
+        "ЛА-ЛА ЛЭНД",
+        "ОДЕРЖИМОСТЬ",
+        "СКОТТ ПИЛИГРИМ ПРОТИВ..."
+    ]
 };
 
-console.log(personalMovieDB);
 
+
+const ads = document.querySelectorAll('.promo__adv img'),
+      genre = document.querySelector('.promo__genre'),
+      bg = document.querySelector('.promo__bg'),
+      movieList = document.querySelector('.promo__interactive-list');
+
+//  1)
+ads.forEach(item => {
+    item.remove();
+});
+//  2)
+genre.textContent = 'драма';
+//  3)
+bg.style.background = "url(img/bg.jpg)center center/cover no-repeat";
+//  4) and 5)
+movieList.innerHTML = "";
+personalMovieDB.filmName.sort();
+personalMovieDB.filmName.forEach((film, i)=> {
+    movieList.innerHTML += `
+        <li class="promo__interactive-item">${i + 1}. ${film}
+            <div class="delete"></div>
+        </li>
+    `;
+    //a = a + 1 or a += 1
+});
 
