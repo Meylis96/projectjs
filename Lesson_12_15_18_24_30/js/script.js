@@ -93,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
           genre = document.querySelector('.promo__genre'),
           bg = document.querySelector('.promo__bg'),
           movieList = document.querySelector('.promo__interactive-list'),
-          btn = document.querySelector('button'),
           addForm = document.querySelector('form.add'),
           addInput = document.querySelector('.adding__input'),
           checkBox = document.querySelector('[type="checkbox"]');
@@ -139,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (newFilm) {
             // 2)
             if(newFilm.length > 25) {
-                newFilm = `${newFilm.substring(0, 22)}...`
+                newFilm = `${newFilm.substring(0, 22)}...`;
             }
 
             // 4)
@@ -176,5 +175,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     createMovieList(personalMovieDB.filmName, movieList);
-
 });
