@@ -94,9 +94,38 @@ window.addEventListener('DOMContentLoaded', () => {
     setClock('.timer', deadline);
 
 
+    // MODALS
 
+    const modalTrigger = document.querySelectorAll('[data-modal]'),
+          modal = document.querySelector('.modal'),
+          modalCloseBtn = document.querySelector('[data-close]');
 
+    modalTrigger.forEach(btn => {
+        btn.addEventListener('click', () => {
+            modal.classList.add('show');
+            modal.classList.remove('hide');
+            document.body.style.overflow = 'hidden'; // to not scroll while modal
+        });
+    });
+    
+    function closeModal() {
+        modal.classList.remove('show');
+        modal.classList.add('hide');
+        document.body.style.overflow = '';
+    }
 
+    modalCloseBtn.addEventListener('click', closeModal);
 
+    modal.addEventListener('click', (e) => { // to close modal when click out of modal
+        if(e.target === modal) { // never use event if we don't give argument
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => { // to close modal when click on ESC
+        if(e.code === "Escape" && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
 
 });
